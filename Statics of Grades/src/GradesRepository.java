@@ -1,5 +1,4 @@
 import java.util.OptionalDouble;
-import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
 public class GradesRepository {
@@ -28,18 +27,18 @@ public class GradesRepository {
     }
   }
 
-  private int getGraphMaxLevel() {
-    int level = stats[0];
-    for (int i = 1; i < stats.length; i++) {
-      if (stats[i] > level) {
-        level = stats[i];
+  private int getMax(int[] data) {
+    int max = data[0];
+    for (int i = 1; i < data.length; i++) {
+      if (data[i] > max) {
+        max = data[i];
       }
     }
-    return level;
+    return max;
   }
 
   public void plot() {
-     int level = getGraphMaxLevel();
+     int level = getMax(stats);
 
      for (int i = level; i > 0; i--) {
        System.out.printf("%d >", i);
@@ -54,31 +53,21 @@ public class GradesRepository {
      }
      String underscores = "-".repeat(11);
      System.out.printf("  %s+-\n", "+".concat(underscores).repeat(5));
-     System.out.print("  |    0-20  ");
-     System.out.print(" |   21-40  ");
-     System.out.print(" |   41-60  ");
-     System.out.print(" |   61-80  ");
-     System.out.print(" |   81-100  |\n");
+     System.out.println("  |    0-20   |   21-40   |   41-60   |   61-80   |   81-100  |");
   }
 
   public void getMaximumGrade() {
-    int max = scores[0];
-    for (int i = 1; i < scores.length; i++) {
-      if (scores[i] > max) {
-        max = scores[i];
-      }
-      System.out.printf("The maximum grade is %d\n", max);
-    }
+    System.out.printf("The maximum grade is %d\n", getMax(scores));
   }
 
   public void getMinimumGrade() {
     int min = scores[0];
     for (int i = 1; i < scores.length; i++) {
-      if (scores[i] > min) {
+      if (scores[i] < min) {
         min = scores[i];
       }
-      System.out.printf("The minimum grade is %d\n", min);
     }
+    System.out.printf("The minimum grade is %d\n", min);
   }
 
   public void getAverage() {
