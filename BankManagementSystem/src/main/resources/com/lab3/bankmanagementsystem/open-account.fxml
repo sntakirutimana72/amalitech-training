@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.collections.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0"
+      prefWidth="450.0" style="-fx-border-radius: 12; -fx-background-color: #faf6f5;" xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lab3.bankmanagementsystem.gui.OpenAccountController">
+  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="597.0"
+         style="-fx-background-color: #e8e8e8;" text="Open New Account" textFill="#00000066">
+    <padding>
+      <Insets bottom="5.0" top="10.0"/>
+    </padding>
+    <font>
+      <Font name="System Bold" size="24.0"/>
+    </font>
+  </Label>
+  <VBox prefHeight="309.0" prefWidth="450.0">
+    <padding>
+      <Insets bottom="10.0" left="40.0" right="40.0" top="30.0"/>
+    </padding>
+    <HBox prefHeight="30.0" prefWidth="580.0">
+      <VBox.margin>
+        <Insets bottom="15.0"/>
+      </VBox.margin>
+      <Label prefHeight="42.0" prefWidth="234.0" text="Account Name">
+        <HBox.margin>
+          <Insets/>
+        </HBox.margin>
+      </Label>
+      <TextField fx:id="accountName" prefHeight="42.0" prefWidth="389.0" promptText="Enter account holder name">
+        <padding>
+          <Insets bottom="5.0" left="15.0" right="10.0" top="5.0"/>
+        </padding>
+      </TextField>
+    </HBox>
+    <HBox layoutX="20.0" layoutY="20.0" prefWidth="370.0">
+      <VBox.margin>
+        <Insets bottom="15.0"/>
+      </VBox.margin>
+      <Label prefHeight="30.0" prefWidth="234.0" text="Account Type"/>
+      <ChoiceBox fx:id="accountType" prefWidth="387.0">
+        <padding>
+          <Insets left="15.0" right="10.0"/>
+        </padding>
+        <HBox.margin>
+          <Insets/>
+        </HBox.margin>
+<!--        <items>-->
+<!--          <FXCollections fx:factory="observableArrayList">-->
+<!--            <String fx:value="Savings"/>-->
+<!--            <String fx:value="Current"/>-->
+<!--            <String fx:value="Fixed Deposit"/>-->
+<!--          </FXCollections>-->
+<!--        </items>-->
+      </ChoiceBox>
+    </HBox>
+    <HBox fx:id="maturityDateField" layoutX="20.0" layoutY="20.0" prefHeight="30.0" prefWidth="580.0">
+      <VBox.margin>
+        <Insets bottom="10.0"/>
+      </VBox.margin>
+      <Label prefHeight="42.0" prefWidth="239.0" text="Maturity Date"/>
+      <DatePicker fx:id="maturityDate" prefHeight="29.0" prefWidth="390.0" promptText="Select date"/>
+    </HBox>
+    <HBox layoutX="50.0" layoutY="139.0" prefHeight="30.0" prefWidth="580.0">
+      <VBox.margin>
+        <Insets bottom="15.0"/>
+      </VBox.margin>
+      <Label prefHeight="42.0" prefWidth="239.0" text="Initial balance"/>
+      <TextField fx:id="initialBalance" prefHeight="30.0" prefWidth="389.0" promptText="Enter initial deposit">
+        <padding>
+          <Insets bottom="5.0" left="15.0" right="10.0" top="5.0"/>
+        </padding>
+        <HBox.margin>
+          <Insets/>
+        </HBox.margin>
+      </TextField>
+    </HBox>
+    <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="520.0" text="Create Account"
+            fx:id="submitTrigger" onAction="#onCreateAccount">
+      <VBox.margin>
+        <Insets top="10.0"/>
+      </VBox.margin>
+    </Button>
+  </VBox>
+</VBox>

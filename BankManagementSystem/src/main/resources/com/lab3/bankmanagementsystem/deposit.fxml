@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox id="depositSlip" maxWidth="Infinity" prefWidth="400"
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.lab3.bankmanagementsystem.gui.DepositController">
+  <padding>
+    <Insets bottom="10.0" left="20.0" right="20.0"/>
+  </padding>
+  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" text="DEPOSIT SLIP" textAlignment="CENTER">
+    <VBox.margin>
+      <Insets bottom="20.0"/>
+    </VBox.margin>
+    <padding>
+      <Insets bottom="5.0" top="5.0"/>
+    </padding>
+  </Label>
+  <VBox maxWidth="Infinity">
+    <VBox prefHeight="59.0" prefWidth="600.0">
+      <VBox.margin>
+        <Insets bottom="15.0"/>
+      </VBox.margin>
+      <Label prefHeight="26.0" prefWidth="600.0" text="Account Number"/>
+      <TextField fx:id="accountNumber" prefHeight="35.0" promptText="Enter account number"/>
+    </VBox>
+    <VBox layoutX="10.0" layoutY="50.0" prefHeight="59.0" prefWidth="600.0">
+      <VBox.margin>
+        <Insets bottom="15.0"/>
+      </VBox.margin>
+      <Label prefHeight="26.0" prefWidth="600.0" text="Amount"/>
+      <TextField fx:id="amount" prefHeight="35.0" promptText="Enter amount"/>
+    </VBox>
+    <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="366.0" text="Process Transaction"
+            fx:id="submitTrigger" onAction="#onDeposit">
+      <VBox.margin>
+        <Insets top="10.0"/>
+      </VBox.margin>
+    </Button>
+  </VBox>
+</VBox>

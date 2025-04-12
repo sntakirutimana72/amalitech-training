@@ -1,0 +1,7 @@
+.bg-primary {
+  -fx-background-color: white;
+}
+
+.text-primary {
+  -fx-text-fill: #333;
+}

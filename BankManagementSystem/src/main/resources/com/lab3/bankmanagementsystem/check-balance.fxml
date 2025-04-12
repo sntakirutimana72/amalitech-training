@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="155.0" prefWidth="504.0"
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.lab3.bankmanagementsystem.gui.BalanceInquiryController">
+  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.0" prefWidth="507.0" text="CHECK BALANCE">
+    <VBox.margin>
+      <Insets bottom="10.0"/>
+    </VBox.margin>
+  </Label>
+  <GridPane prefHeight="31.0" prefWidth="504.0">
+    <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="227.0" minWidth="10.0" prefWidth="119.0"/>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.0" minWidth="10.0" prefWidth="271.0"/>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="381.0" minWidth="10.0" prefWidth="92.0"/>
+    </columnConstraints>
+    <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <padding>
+      <Insets left="20.0" right="20.0"/>
+    </padding>
+    <Label prefHeight="31.0" prefWidth="116.0" text="Account Number"/>
+    <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="96.0" text="Check"
+            onAction="#onBalanceCheck" GridPane.columnIndex="2"/>
+    <TextField prefHeight="45.0" prefWidth="272.0" promptText="Enter account number"
+               fx:id="accountNumber" GridPane.columnIndex="1">
+      <GridPane.margin>
+        <Insets right="10.0"/>
+      </GridPane.margin>
+    </TextField>
+  </GridPane>
+</VBox>

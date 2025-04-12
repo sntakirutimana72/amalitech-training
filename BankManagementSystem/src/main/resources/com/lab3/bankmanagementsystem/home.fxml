@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.lab3.bankmanagementsystem.gui.HomeController">
+  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="214.0" prefHeight="83.0" prefWidth="570.0"
+         text="Bank Management System" textFill="#00000036" AnchorPane.bottomAnchor="103.0" AnchorPane.leftAnchor="15.0"
+         AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="214.0">
+    <font>
+      <Font name="System Bold" size="28.0"/>
+    </font>
+  </Label>
+  <ImageView fitHeight="117.0" fitWidth="128.0" layoutX="242.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true"
+             AnchorPane.leftAnchor="242.0" AnchorPane.rightAnchor="241.0" AnchorPane.topAnchor="83.0">
+    <Image url="@bank.png"/>
+  </ImageView>
+</AnchorPane>
