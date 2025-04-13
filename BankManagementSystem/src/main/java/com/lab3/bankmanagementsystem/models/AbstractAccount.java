@@ -9,7 +9,7 @@ public abstract class AbstractAccount implements Account {
   private final String accountNumber;
   private final String accountHolder;
   private final AcccountType acccountType;
-  private double balance;
+  protected double balance;
   private final TransactionHistory transactionHistory;
 
   public AbstractAccount(String accountHolder, AcccountType acccountType, double initialBalance) {
@@ -18,10 +18,6 @@ public abstract class AbstractAccount implements Account {
     this.acccountType = acccountType;
     this.balance = initialBalance;
     this.transactionHistory = new TransactionHistory();
-  }
-
-  protected final void updateBalance(double amount) {
-    balance += amount;
   }
 
   @Override
@@ -33,13 +29,13 @@ public abstract class AbstractAccount implements Account {
   public void deposit(double amount, String description) {
     if (amount <= 0)
       throw new IllegalAmountException("Deposit");
-    updateBalance(amount);
+    balance += amount;
     addTransaction(new Transaction("DEPOSIT", amount, description));
   }
 
   @Override
   public final void withdraw(double amount, String description) {
-    updateBalance(-amount);
+    balance -= balance;
     addTransaction(new Transaction("WITHDRAWAL", amount, description));
   }
 

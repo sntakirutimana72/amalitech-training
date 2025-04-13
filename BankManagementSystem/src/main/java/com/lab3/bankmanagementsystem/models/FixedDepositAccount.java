@@ -7,36 +7,40 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class FixedDepositAccount extends AbstractAccount {
-  private static final double INTEREST_RATE = 0.05;
-  private boolean hasAccumulatedInterest;
-  private LocalDate depositDate;
+  private static final double INTEREST_RATE = 0.05; // annual interest rate
+  private LocalDate lastInterestApplied;
   private LocalDate maturityDate;
 
   public FixedDepositAccount(String accountHolder, double initialBalance, int months) {
     super(accountHolder, AcccountType.FIXED_DEPOSIT, initialBalance);
-    setMaturity(months);
+    lastInterestApplied = LocalDate.now();
+    setMaturityDate(months);
   }
 
-  private void setMaturity(int period) {
-    setHasAccumulatedInterest(true);
-
-    depositDate = LocalDate.now();
-    maturityDate = depositDate.plusMonths(period);
+  private void setMaturityDate(int period) {
+    maturityDate = lastInterestApplied.plusMonths(period);
   }
 
   private boolean cannotTransact() {
     return LocalDate.now().isBefore(getMaturityDate());
   }
 
-  private void setHasAccumulatedInterest(boolean state) {
-    hasAccumulatedInterest = state;
+  private void applyInterest() {
+    LocalDate now = LocalDate.now();
+    long daysPassed = ChronoUnit.DAYS.between(lastInterestApplied, now);
+
+    if (daysPassed > 0) {
+      double dailyRate = INTEREST_RATE / 365;
+      double interest = balance * dailyRate * daysPassed;
+      balance += interest;
+      lastInterestApplied = now;
+    }
   }
 
-  private void consumeInterest() {
-    if (hasAccumulatedInterest) {
-      updateBalance(calculateInterest());
-      setHasAccumulatedInterest(false);
-    }
+  @Override
+  public double getBalance() {
+    applyInterest();
+    return super.getBalance();
   }
 
   @Override
@@ -48,35 +52,23 @@ public class FixedDepositAccount extends AbstractAccount {
     if (cannotTransact())
       throw new IllegalArgumentException("Cannot deposit before " + getMaturityDate());
 
-    consumeInterest();
+    applyInterest();
     super.deposit(amount, description);
-    setMaturity(maturity);
+    setMaturityDate(maturity);
   }
 
   @Override
-  public void withdraw(double amount) throws InsufficientFundsException {
+  public void withdraw(double amount) {
     if (cannotTransact())
       throw new IllegalArgumentException("Cannot withdraw before maturity date");
     if (amount <= 0)
       throw new IllegalAmountException("Withdrawal");
-
-    consumeInterest();
-
-    if (amount > getBalance())
+    if (getBalance() < amount)
       throw new InsufficientFundsException();
     super.withdraw(amount, "Withdrawal from fixed deposit account");
   }
 
-  public double calculateInterest() {
-    long months = ChronoUnit.MONTHS.between(getDepositDate(), LocalDate.now());
-    return getBalance() * INTEREST_RATE * (months / 12.0);
-  }
-
   public LocalDate getMaturityDate() {
     return maturityDate;
-  }
-
-  public LocalDate getDepositDate() {
-    return depositDate;
   }
 }
