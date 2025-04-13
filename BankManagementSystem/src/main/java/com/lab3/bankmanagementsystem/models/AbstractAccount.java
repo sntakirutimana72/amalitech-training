@@ -3,6 +3,8 @@ package com.lab3.bankmanagementsystem.models;
 import com.lab3.bankmanagementsystem.util.UIDGenerator;
 import com.lab3.bankmanagementsystem.util.errors.IllegalAmountException;
 
+import java.util.List;
+
 public abstract class AbstractAccount implements Account {
   private final String accountNumber;
   private final String accountHolder;
@@ -62,12 +64,12 @@ public abstract class AbstractAccount implements Account {
   }
 
   @Override
-  public Transaction[] getTransactionHistory() {
+  public List<Transaction> getTransactionHistory() {
     return getLastNTransactions(transactionHistory.getSize());
   }
 
   @Override
-  public Transaction[] getLastNTransactions(int num) {
+  public List<Transaction> getLastNTransactions(int num) {
     return transactionHistory.getMany(num);
   }
 

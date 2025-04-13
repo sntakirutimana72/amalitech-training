@@ -2,6 +2,8 @@ package com.lab3.bankmanagementsystem.models;
 
 import com.lab3.bankmanagementsystem.util.errors.InsufficientFundsException;
 
+import java.util.List;
+
 public interface Account {
   void deposit(double amount, String description);
   void withdraw(double amount, String description) throws InsufficientFundsException;
@@ -22,8 +24,8 @@ public interface Account {
   void addTransaction(Transaction transaction);
 
   // Query transaction history
-  Transaction[] getTransactionHistory();
+  List<Transaction> getTransactionHistory();
 
   // Query some recent transaction history
-  Transaction[] getLastNTransactions(int number);
+  List<Transaction> getLastNTransactions(int number);
 }

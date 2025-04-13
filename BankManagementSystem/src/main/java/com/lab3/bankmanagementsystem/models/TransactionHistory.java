@@ -2,6 +2,9 @@ package com.lab3.bankmanagementsystem.models;
 
 import com.lab3.bankmanagementsystem.util.errors.NotFoundException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TransactionHistory {
   private Node tail;
   private int size;
@@ -24,15 +27,15 @@ public class TransactionHistory {
     return size;
   }
 
-  public Transaction[] getMany(int num) {
+  public List<Transaction> getMany(int num) {
     if (tail == null)
-      throw new NotFoundException("No transactions found");
+      throw new NotFoundException("No transactions yet");
 
-    Transaction[] recentTransactions = new Transaction[num];
+    List<Transaction> recentTransactions = new ArrayList<>();
     Node current = tail;
 
     for (int i = 0; current != null && i < num; i++) {
-      recentTransactions[i] = current.getData();
+      recentTransactions.add(current.getData());
       current = current.getPrevious();
     }
     return recentTransactions;

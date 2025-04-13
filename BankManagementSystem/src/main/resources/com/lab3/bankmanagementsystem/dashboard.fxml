@@ -4,42 +4,42 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            fx:id="mainLayout" styleClass="bg-primary" prefHeight="400" prefWidth="700"
-            fx:controller="com.lab3.bankmanagementsystem.gui.DashboardController"
-            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+<BorderPane fx:id="mainLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400" prefWidth="700" styleClass="bg-primary" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lab3.bankmanagementsystem.gui.DashboardController">
 
    <left>
      <VBox prefHeight="458.0" prefWidth="167.0" BorderPane.alignment="CENTER">
        <padding>
          <Insets bottom="10.0" left="10.0" right="10.0" top="30.0"/>
        </padding>
-       <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="169.0" text="HOME"
-               onAction="#switchToHome">
+       <Button mnemonicParsing="false" onAction="#switchToHome" prefHeight="29.0" prefWidth="169.0" text="HOME">
          <VBox.margin>
            <Insets bottom="10.0"/>
          </VBox.margin>
        </Button>
-       <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="178.0" text="NEW ACCOUNT"
-               onAction="#switchToOpenAccount">
+       <Button mnemonicParsing="false" onAction="#switchToOpenAccount" prefHeight="29.0" prefWidth="178.0"
+               text="NEW ACCOUNT">
          <VBox.margin>
            <Insets bottom="10.0"/>
          </VBox.margin>
        </Button>
-       <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="187.0" text="DEPOSIT"
-               onAction="#switchToDeposit">
+       <Button mnemonicParsing="false" onAction="#switchToDeposit" prefHeight="29.0" prefWidth="187.0" text="DEPOSIT">
          <VBox.margin>
            <Insets bottom="10.0"/>
          </VBox.margin>
        </Button>
-       <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="174.0" text="WITHDRAW"
-               onAction="#switchToWithdraw">
+       <Button mnemonicParsing="false" onAction="#switchToWithdraw" prefHeight="29.0" prefWidth="174.0" text="WITHDRAW">
          <VBox.margin>
            <Insets bottom="10.0"/>
          </VBox.margin>
        </Button>
-       <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="164.0" text="CHECK BALANCE"
-               onAction="#switchToCheckBalance"/>
+       <Button mnemonicParsing="false" onAction="#switchToTransactionHistory" prefHeight="29.0" prefWidth="164.0"
+               text="TRANSACTIONS">
+         <VBox.margin>
+           <Insets bottom="10.0"/>
+         </VBox.margin>
+       </Button>
+       <Button mnemonicParsing="false" onAction="#switchToCheckBalance" prefHeight="29.0" prefWidth="164.0"
+               text="CHECK BALANCE"/>
      </VBox>
    </left>
 </BorderPane>

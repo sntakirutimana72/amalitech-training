@@ -9,8 +9,7 @@ import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 
 public class DashboardController extends Controller {
-  @FXML
-  private BorderPane mainLayout;
+  @FXML private BorderPane mainLayout;
 
   @FXML
   private void switchToHome() {
@@ -35,6 +34,11 @@ public class DashboardController extends Controller {
   @FXML
   private void switchToWithdraw() {
     switchTo("withdraw");
+  }
+
+  @FXML
+  private void switchToTransactionHistory() {
+    switchTo("transaction-history");
   }
 
   private FXMLLoader getLoader(String view) {
