@@ -35,7 +35,7 @@ public abstract class AbstractAccount implements Account {
 
   @Override
   public final void withdraw(double amount, String description) {
-    balance -= balance;
+    balance -= amount;
     addTransaction(new Transaction("WITHDRAWAL", amount, description));
   }
 

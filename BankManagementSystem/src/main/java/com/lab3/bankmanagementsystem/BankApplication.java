@@ -14,11 +14,11 @@ import java.util.Objects;
 public class BankApplication extends Application {
   private AccountRepository accounts;
 
-  private final void onStartup() {
+  private void onStartup() {
     configureRepositories();
   }
 
-  private final void configureRepositories() {
+  private void configureRepositories() {
     accounts = new AccountRepository();
   }
 
