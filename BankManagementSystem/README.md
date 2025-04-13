@@ -7,7 +7,8 @@
 A simple banking system that allows to manage different types of `accounts`.
 
 ## Live version
-- [Loom]()
+- [Project Instructions](https://amalitech-training.notion.site/Bank-Account-Management-System-1ca6c750c0d58177b443cee627e01fdc)
+- [Video](https://docs.google.com/document/d/1kn8vw47q-rlomO3oFjgcUz2x7iuqgI18686y5SUc0tA/edit?usp=sharing)
 
 ## Built with
 ![Tools](https://skillicons.dev/icons?i=java,idea,git,github)
